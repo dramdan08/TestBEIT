@@ -1,19 +1,148 @@
-﻿@model object
+﻿@model TestBEIT.Logics.Students.SiswaResponse
 
 @{
     Layout = null;
 }
 
- 
-    <html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-        <title>Sekolah Isekai</title>
-
-    </head>
-
-    <body>
-    <div>
-tes
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sekolah Isekai</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sekolah Isekai</h1>
+        <div class="student-tables">
+            <h2>Siswa Kelas</h2>
+            <ul class="kelas-list">
+                <li><a href="#kelas-1">Kelas 1</a></li>
+                <li><a href="#kelas-2">Kelas 2</a></li>
+                <li><a href="#kelas-3">Kelas 3</a></li>
+                <li><a href="#kelas-4">Kelas 4</a></li>
+                <li><a href="#kelas-5">Kelas 5</a></li>
+                <li><a href="#kelas-6">Kelas 6</a></li>
+                <li><a href="#siswa-meninggal">Siswa Meninggal</a></li>
+                <li><a href="#siswa-menikah">Siswa Menikah</a></li>
+            </ul>
+            @foreach (var kelas in new[] { "1", "2", "3", "4", "5", "6"})
+            {
+                <table class="student-table" id="kelas-@kelas">
+                    <thead>
+                        <tr>
+                            <th>Kelas @kelas</th>
+                            <th>Nama</th>
+                            <th>Nilai</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @switch (kelas)
+                        {
+                            case "1":
+                                @foreach (var item in Model.ListSiswaKelas1)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.Point</td>
+                                    </tr>
+                                }
+                                break;
+                            case "2":
+                                @foreach (var item in Model.ListSiswaKelas2)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.Point</td>
+                                    </tr>
+                                }
+                                break;
+                            case "3":
+                                @foreach (var item in Model.ListSiswaKelas3)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.Point</td>
+                                    </tr>
+                                }
+                                break;
+                            case "4":
+                                @foreach (var item in Model.ListSiswaKelas4)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.Point</td>
+                                    </tr>
+                                }
+                                break;
+                            case "5":
+                                @foreach (var item in Model.ListSiswaKelas5)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.Point</td>
+                                    </tr>
+                                }
+                                break;
+                            case "6":
+                                @foreach (var item in Model.ListSiswaKelas6)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.Point</td>
+                                    </tr>
+                                }
+                                break;
+                        }
+                    </tbody>
+                </table>
+            }
+            Siswa Meninggal
+            <table id="siswa-meninggal">
+                <thead>
+                    <tr>
+                        <th>Kelas</th>
+                        <th>Nama</th>
+                        <th>Nilai</th>
+                        <th>Meninggal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        @foreach (var item in Model.ListSiswaMeninggal)
+                        {
+                            <tr>
+                                <td>@item.Kelas</td>
+                                <td>@item.Name</td>
+                                <td>@item.Point</td>
+                                <td>@item.DeadDate</td>
+                            </tr>
+                        }                   
+                </tbody>
+            </table>
+            Siswa Menikah
+            <table id="siswa-menikah">
+                <thead>
+                    <tr>
+                        <th>Kelas</th>
+                        <th>Nama</th>
+                        <th>Nilai</th>
+                        <th>Menikah</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ListSiswaMarried)
+                    {
+                        <tr>
+                            <td>@item.Kelas</td>
+                            <td>@item.Name</td>
+                            <td>@item.Point</td>
+                            <td>@item.MarriedYear</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-        </body>
-  </html>
+</body>
+</html>

@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TestBEIT.Logics.Students;
 
 namespace TestBEIT.Controllers
 {
-    public class SiswaController : Controller
+    public class SiswaController(SiswaLogic siswaLogic) : Controller
     {
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            return View();
+            var listSiswa = await siswaLogic.MenentukanKelas();
+            return View(listSiswa);
         }
     }
 }

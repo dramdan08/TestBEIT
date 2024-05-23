@@ -3,9 +3,10 @@
     public class Siswa
     {
         public string Name {  get; set; }
+        public string Kelas { get; set; }
         public int Point { get; set; }
-        public DateOnly DeadDate { get; set; }
-        public int MarriedYear { get; set; }
+        public DateOnly? DeadDate { get; set; }
+        public int? MarriedYear { get; set; }
 
     }
 }
